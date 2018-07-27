@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+
+{% block content %} 
+<table class="table">
+  <tr align="center">
+    <th scope="col">Number</th>
+    <th scope="col">title</th>
+    <th scope="col">author</th>
+    <th scope="col">publish date</th>
+  </tr>
+  {% for post in post_list %}
+  <tr>
+    <td scope="row">{{ post.pk }}</td>
+    <td><a href="{% url "post_detail" post.pk %}">{{ post.title }}</a></td>
+    <td>{{ post.author }}</td>
+    <td>{{ post.published_date }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}  
